@@ -1,0 +1,17 @@
+html {
+  box-sizing: border-box;
+}
+
+*, :after, ::before {
+  box-sizing: inherit;
+}
+
+.body {
+  color: #fff;
+  background-color: hsl(210, 24%, 15%);
+  max-width: 1000px;
+  margin: 10px auto;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  text-align: center;
+}
