@@ -11,7 +11,7 @@ A currency Calculator that convert PLN to currently 3 currencies **(EURO,USD,GBP
 
 ### Preview
 
-![preview](https://github.com/RadekJelen/currency-converter/blob/main/img/previewConv.gif?raw=true)
+![preview](img/previewConv.gif)
 
 ### Used 
 - HTML
