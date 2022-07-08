@@ -1,28 +1,51 @@
-let converterElement = document.querySelector(".js-converter");
-let amountElement = document.querySelector(".js-amount");
-let resultElement = document.querySelector(".js-result");
-let currencyElement = document.querySelector(".js-select");
+{
+    const claculateResult = (currency, amount) => {
 
-converterElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+        const rateEUR = 4.6965;
+        const rateUSD = 4.4369;
+        const rateGBP = 5.4655;
 
-    let amount = +amountElement.value;
-    let currency = currencyElement.value;
-    let rate;
+        switch (currency) {
+            case "EUR":
+                return amount / rateEUR;
 
-    switch (currency) {
-        case "EUR":
-            rate = 4.6965;
-            break;
+            case "USD":
+                return amount / rateUSD;
 
-        case "USD":
-            rate = 4.4369;
-            break;
+            case "GBP":
+                return amount / rateGBP;
+        }
 
-        case "GBP":
-            rate = 5.4655;
     };
 
-    result = (amount / rate);
-    resultElement.innerHTML = `<strong>${amount.toFixed(2)}</strong>&nbsp;PLN = <strong>${result.toFixed(2)}</strong>&nbsp;${currency}`
-});
+    const updateResultText = (amount, result, currency) => {
+
+        const resultElement = document.querySelector(".js-result");
+        
+        resultElement.innerHTML = `<strong>${amount.toFixed(2)}</strong>&nbsp;PLN = <strong>${result.toFixed(2)}</strong>&nbsp;${currency}`
+        
+    }
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const amountElement = document.querySelector(".js-amount");
+        const currencyElement = document.querySelector(".js-select");
+
+        const amount = +amountElement.value;
+        const currency = currencyElement.value;
+
+        let result = claculateResult(currency, amount)
+
+        updateResultText(amount, result, currency);
+    };
+
+    const init = () => {
+
+        const converterElement = document.querySelector(".js-converter");
+
+        converterElement.addEventListener("submit", onFormSubmit);
+    };
+
+    init();
+}
