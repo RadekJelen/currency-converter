@@ -35,7 +35,7 @@
         const amount = +amountElement.value;
         const currency = currencyElement.value;
 
-        let result = claculateResult(currency, amount)
+        const result = claculateResult(currency, amount)
 
         updateResultText(amount, result, currency);
     };
